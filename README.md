@@ -7,7 +7,7 @@
 
 ---
 
-## 📊 Results
+## Results
 | Method           | Approximate Root | Converged in Iterations |
 |------------------|------------------|--------------------------|
 | Bisection        | 2.000000         | 1                        |
@@ -19,7 +19,7 @@ The Newton–Raphson method achieved the fastest convergence.
 
 ---
 
-## 💡 Applications
+## Applications
 Numerical methods like these are essential in **Computer Science and Engineering**, especially for:
 - Root-finding in algorithms and simulations  
 - Optimizing functions in machine learning  
@@ -27,14 +27,14 @@ Numerical methods like these are essential in **Computer Science and Engineering
 
 ---
 
-## 🧩 Tools Used
+## Tools Used
 - **GNU Octave 10.3.0** (compatible with MATLAB)
 - **macOS Terminal / Visual Studio Code**
 - **Git & GitHub** for version control
 
 ---
 
-## ✍️ Author
+## Author
 **Shoug Alomran**  
 Prince Sultan University — Math 221  
 Fall 2025
