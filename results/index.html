@@ -390,9 +390,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#43-sample-iteration-output-from-octave" class="md-nav__link">
+  <a href="#43-sample-output-from-octave" class="md-nav__link">
     <span class="md-ellipsis">
-      4.3 Sample Iteration Output (from Octave)
+      4.3 Sample Output from Octave
     </span>
   </a>
   
@@ -441,9 +441,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#46-error-vs-iteration-plot" class="md-nav__link">
+  <a href="#46-error-vs-iteration" class="md-nav__link">
     <span class="md-ellipsis">
-      4.6 Error vs. Iteration Plot
+      4.6 Error vs. Iteration
     </span>
   </a>
   
@@ -630,9 +630,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#43-sample-iteration-output-from-octave" class="md-nav__link">
+  <a href="#43-sample-output-from-octave" class="md-nav__link">
     <span class="md-ellipsis">
-      4.3 Sample Iteration Output (from Octave)
+      4.3 Sample Output from Octave
     </span>
   </a>
   
@@ -681,9 +681,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#46-error-vs-iteration-plot" class="md-nav__link">
+  <a href="#46-error-vs-iteration" class="md-nav__link">
     <span class="md-ellipsis">
-      4.6 Error vs. Iteration Plot
+      4.6 Error vs. Iteration
     </span>
   </a>
   
@@ -724,27 +724,27 @@
 
 
 <h1 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h1>
-<p>This section presents the computational results obtained from implementing the <strong>Bisection</strong>, <strong>Newton–Raphson</strong>, and <strong>Secant Methods</strong> for solving nonlinear equations.<br />
-All three methods were applied to the same test function to compare their performance in terms of convergence rate, number of iterations, and accuracy.</p>
+<p>This section presents the results obtained from applying the <strong>Bisection</strong>, <strong>Newton–Raphson</strong>, and <strong>Secant</strong> methods to solve a nonlinear equation.<br />
+All methods were implemented in <strong>GNU Octave</strong> to compare their convergence, number of iterations, and overall accuracy.</p>
 <hr />
 <h2 id="41-function-used">4.1 Function Used<a class="headerlink" href="#41-function-used" title="Permanent link">&para;</a></h2>
-<p>The function chosen for analysis was:</p>
+<p>The function chosen for analysis is:</p>
 <div class="arithmatex">\[
 f(x) = x^2 - 4
 \]</div>
-<p>The true root of the function is <span class="arithmatex">\(x = 2\)</span>, since <span class="arithmatex">\(2^2 - 4 = 0\)</span>.<br />
-This function was selected for its simplicity and because it allows straightforward comparison among methods while still demonstrating convergence behavior.</p>
+<p>The exact root of this function is <span class="arithmatex">\( x = 2 \)</span>, since <span class="arithmatex">\( 2^2 - 4 = 0 \)</span>.<br />
+This function was selected because it is simple yet suitable for observing the convergence behavior of each method.</p>
 <hr />
 <h2 id="42-iterative-results">4.2 Iterative Results<a class="headerlink" href="#42-iterative-results" title="Permanent link">&para;</a></h2>
 <p>Each method was executed in <strong>GNU Octave 10.3.0</strong> (compatible with MATLAB).<br />
-The following table summarizes the number of iterations required to reach the approximate root with a tolerance of <span class="arithmatex">\(10^{-6}\)</span>:</p>
+The table below summarizes the number of iterations required to reach the approximate root using a tolerance of <span class="arithmatex">\( 10^{-6} \)</span>:</p>
 <table>
 <thead>
 <tr>
-<th>Method</th>
-<th>Approximate Root</th>
-<th>Converged in Iterations</th>
-<th>Remarks</th>
+<th><strong>Method</strong></th>
+<th><strong>Approximate Root</strong></th>
+<th><strong>Iterations</strong></th>
+<th><strong>Remarks</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -752,13 +752,13 @@ The following table summarizes the number of iterations required to reach the ap
 <td><strong>Bisection</strong></td>
 <td>2.000000</td>
 <td>1</td>
-<td>Fast convergence due to perfect midpoint.</td>
+<td>Fast convergence due to midpoint symmetry.</td>
 </tr>
 <tr>
 <td><strong>Newton–Raphson</strong></td>
 <td>2.000000</td>
 <td>5</td>
-<td>Rapid quadratic convergence near the root.</td>
+<td>Fast quadratic convergence.</td>
 </tr>
 <tr>
 <td><strong>Secant</strong></td>
@@ -768,11 +768,11 @@ The following table summarizes the number of iterations required to reach the ap
 </tr>
 </tbody>
 </table>
-<p>All three methods successfully converged to the same correct root <strong>(x = 2)</strong>.<br />
-The <strong>Newton–Raphson method</strong> showed the fastest convergence, as expected for derivative-based algorithms.</p>
+<p>All three methods successfully reached the same root, <span class="arithmatex">\( x = 2 \)</span>.<br />
+Among them, the <strong>Newton–Raphson Method</strong> converged the fastest.</p>
 <hr />
-<h2 id="43-sample-iteration-output-from-octave">4.3 Sample Iteration Output (from Octave)<a class="headerlink" href="#43-sample-iteration-output-from-octave" title="Permanent link">&para;</a></h2>
-<p>Below is an example of the terminal output for the Newton–Raphson method:</p>
+<h2 id="43-sample-output-from-octave">4.3 Sample Output from Octave<a class="headerlink" href="#43-sample-output-from-octave" title="Permanent link">&para;</a></h2>
+<p>Below is an example of the terminal output for the <strong>Newton–Raphson Method</strong>:</p>
 <div class="highlight"><pre><span></span><code>Enter<span class="w"> </span>initial<span class="w"> </span>guess<span class="w"> </span><span class="nv">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
 Enter<span class="w"> </span><span class="nv">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>1e-6
 
@@ -793,68 +793,73 @@ Root<span class="w"> </span>found<span class="w"> </span>at<span class="w"> </sp
 <hr />
 <h2 id="45-observations">4.5 Observations<a class="headerlink" href="#45-observations" title="Permanent link">&para;</a></h2>
 <ul>
-<li>All three methods reached the same correct solution within acceptable tolerance.  </li>
-<li><strong>Newton–Raphson</strong> demonstrated <strong>quadratic convergence</strong>, requiring fewer iterations.  </li>
-<li><strong>Bisection</strong> was the most stable but the slowest method.  </li>
-<li><strong>Secant</strong> performed efficiently while eliminating the need for derivatives.  </li>
-<li>Computational error decreased steadily with each iteration.</li>
+<li>All three methods converged to the same solution with very small error.  </li>
+<li>The <strong>Newton–Raphson Method</strong> showed the fastest convergence because of its quadratic rate.  </li>
+<li>The <strong>Bisection Method</strong> was the most stable but required fewer computational steps in this special case.  </li>
+<li>The <strong>Secant Method</strong> performed well without the need for derivatives.  </li>
+<li>In all methods, the error decreased steadily as the number of iterations increased.</li>
 </ul>
 <hr />
-<h2 id="46-error-vs-iteration-plot">4.6 Error vs. Iteration Plot<a class="headerlink" href="#46-error-vs-iteration-plot" title="Permanent link">&para;</a></h2>
-<p>The error plot (Figure 2) highlights how each method’s error decreases as iterations progress.<br />
-The <strong>Newton–Raphson</strong> method exhibits the steepest decline, confirming its faster convergence rate.</p>
+<h2 id="46-error-vs-iteration">4.6 Error vs. Iteration<a class="headerlink" href="#46-error-vs-iteration" title="Permanent link">&para;</a></h2>
+<p>The error plot illustrates how each method’s error value decreases with each iteration.<br />
+The <strong>Newton–Raphson Method</strong> shows the steepest drop in error, confirming that it converges faster than the <strong>Bisection</strong> and <strong>Secant</strong> methods.<br />
+This agrees with the expected theoretical behavior discussed in the course.</p>
 <hr />
 <h2 id="47-summary-of-results">4.7 Summary of Results<a class="headerlink" href="#47-summary-of-results" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Metric</th>
-<th style="text-align: center;">Bisection</th>
-<th style="text-align: center;">Newton–Raphson</th>
-<th style="text-align: center;">Secant</th>
+<th><strong>Metric</strong></th>
+<th style="text-align: center;"><strong>Bisection</strong></th>
+<th style="text-align: center;"><strong>Newton–Raphson</strong></th>
+<th style="text-align: center;"><strong>Secant</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Root Found</td>
+<td><strong>Root Found</strong></td>
 <td style="text-align: center;">2.000000</td>
 <td style="text-align: center;">2.000000</td>
 <td style="text-align: center;">2.000000</td>
 </tr>
 <tr>
-<td style="text-align: left;">Iterations</td>
+<td><strong>Iterations</strong></td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">6</td>
 </tr>
 <tr>
-<td style="text-align: left;">Requires Derivative</td>
+<td><strong>Derivative Required</strong></td>
 <td style="text-align: center;">No</td>
 <td style="text-align: center;">Yes</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr>
-<td style="text-align: left;">Convergence Type</td>
+<td><strong>Convergence Type</strong></td>
 <td style="text-align: center;">Linear</td>
 <td style="text-align: center;">Quadratic</td>
 <td style="text-align: center;">Superlinear</td>
 </tr>
 <tr>
-<td style="text-align: left;">Stability</td>
+<td><strong>Stability</strong></td>
 <td style="text-align: center;">High</td>
 <td style="text-align: center;">Medium</td>
 <td style="text-align: center;">Medium</td>
 </tr>
 </tbody>
 </table>
-<p>All numerical methods achieved accurate results.<br />
-However, <strong>Newton–Raphson</strong> proved to be the most efficient, balancing computational speed and precision.</p>
+<p>All three methods produced the same correct root <span class="arithmatex">\( x = 2 \)</span>.<br />
+However, the <strong>Newton–Raphson Method</strong> was the most efficient because it reached the solution with fewer iterations and high precision.  </p>
 <hr />
 <h2 id="48-conclusion-of-findings">4.8 Conclusion of Findings<a class="headerlink" href="#48-conclusion-of-findings" title="Permanent link">&para;</a></h2>
-<p>The experiment confirmed the theoretical expectations for each numerical method.<br />
-While the <strong>Bisection Method</strong> provides guaranteed convergence, it converges slowly.<br />
-The <strong>Secant Method</strong> offers good performance without needing derivatives, and the <strong>Newton–Raphson Method</strong> achieves superior speed when an accurate initial guess is available.</p>
-<p>These findings emphasize the importance of choosing the appropriate method depending on the problem’s characteristics and available computational resources.</p>
+<p>The experiment confirmed the theoretical performance of each numerical method:  </p>
+<ul>
+<li>The <strong>Bisection Method</strong> always converges but is relatively slow.  </li>
+<li>The <strong>Newton–Raphson Method</strong> is the fastest when the derivative and a good initial guess are available.  </li>
+<li>The <strong>Secant Method</strong> offers a practical compromise when the derivative is unknown.  </li>
+</ul>
+<p>These results are consistent with the concepts learned in class and demonstrate how each method behaves in practice.<br />
+They also show the importance of selecting the right numerical method depending on the type of equation and the information available.</p>
 
 
 

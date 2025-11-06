@@ -604,102 +604,106 @@
 
 
 <h1 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h1>
-<p>This section explains the three numerical methods applied in this project to find the roots of nonlinear equations: <strong>Bisection</strong>, <strong>Newton–Raphson</strong>, and <strong>Secant</strong> methods.<br />
-Each method is based on iterative computation that refines an initial estimate of the root until a predefined tolerance is satisfied.</p>
+<p>This section explains the three numerical methods used in this project to find the root of a nonlinear equation: <strong>Bisection</strong>, <strong>Newton–Raphson</strong>, and <strong>Secant</strong>.<br />
+Each method improves an initial guess step by step until the value of <span class="arithmatex">\( x \)</span> becomes close enough to the actual root within a chosen tolerance.</p>
 <hr />
 <h2 id="1-bisection-method">1. Bisection Method<a class="headerlink" href="#1-bisection-method" title="Permanent link">&para;</a></h2>
-<p>The <strong>Bisection Method</strong> is a simple and reliable root-finding technique that repeatedly divides an interval in half and selects the subinterval that contains the root.<br />
-It is based on the <strong>Intermediate Value Theorem</strong>, which states that if <span class="arithmatex">\(f(a)\)</span> and <span class="arithmatex">\(f(b)\)</span> have opposite signs, there must exist at least one root between them.</p>
-<p><strong>Procedure:</strong>
-1. Choose two initial guesses <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> such that <span class="arithmatex">\(f(a) \times f(b) &lt; 0\)</span>.<br />
-2. Compute the midpoint:
-   [
-   x_m = \frac{a + b}{2}
-   ]
-3. Evaluate <span class="arithmatex">\(f(x_m)\)</span>:
-   - If <span class="arithmatex">\(f(a) \times f(x_m) &lt; 0\)</span>, the root lies in <span class="arithmatex">\([a, x_m]\)</span>.
-   - Otherwise, it lies in <span class="arithmatex">\([x_m, b]\)</span>.
-4. Repeat until the interval width <span class="arithmatex">\(|b - a|\)</span> is less than the given tolerance <span class="arithmatex">\(\varepsilon\)</span>.</p>
-<p><strong>Stopping Criterion:</strong>
-[
-|f(x_m)| &lt; \varepsilon
-]</p>
-<p><strong>Advantages:</strong>
-- Always convergent if <span class="arithmatex">\(f(a)f(b) &lt; 0\)</span>.
-- Simple and easy to implement.</p>
-<p><strong>Limitations:</strong>
-- Slow convergence rate.
-- Requires the sign of <span class="arithmatex">\(f(a)\)</span> and <span class="arithmatex">\(f(b)\)</span> to be opposite.</p>
+<p>The <strong>Bisection Method</strong> is a simple and reliable way to find a root by dividing an interval in half repeatedly and choosing the part where the function changes sign.<br />
+It is based on the <strong>Intermediate Value Theorem</strong>, which states that if <span class="arithmatex">\( f(a) \)</span> and <span class="arithmatex">\( f(b) \)</span> have opposite signs, then there is at least one root between them.</p>
+<p><strong>Procedure:</strong><br />
+1. Choose two values <span class="arithmatex">\( a \)</span> and <span class="arithmatex">\( b \)</span> such that <span class="arithmatex">\( f(a) \times f(b) &lt; 0 \)</span>.<br />
+2. Find the midpoint:  </p>
+<div class="arithmatex">\[
+x_{i+1} = \frac{a + b}{2}
+\]</div>
+<ol>
+<li>Check the sign of <span class="arithmatex">\( f(x_{i+1}) \)</span>:  </li>
+<li>If <span class="arithmatex">\( f(a) \times f(x_{i+1}) &lt; 0 \)</span>, set <span class="arithmatex">\( b = x_{i+1} \)</span>.  </li>
+<li>Otherwise, set <span class="arithmatex">\( a = x_{i+1} \)</span>.  </li>
+<li>Continue until the interval <span class="arithmatex">\( |b - a| \)</span> is smaller than the chosen tolerance <span class="arithmatex">\( \varepsilon \)</span>.  </li>
+</ol>
+<p><strong>Stopping Criterion:</strong>  </p>
+<div class="arithmatex">\[
+|f(x_{i+1})| &lt; \varepsilon
+\]</div>
+<p><strong>Advantages:</strong><br />
+- Always converges if <span class="arithmatex">\( f(a)f(b) &lt; 0 \)</span>.<br />
+- Simple and easy to apply.  </p>
+<p><strong>Limitations:</strong><br />
+- Convergence is slow.<br />
+- Requires that the initial interval contains a sign change.  </p>
 <hr />
 <h2 id="2-newtonraphson-method">2. Newton–Raphson Method<a class="headerlink" href="#2-newtonraphson-method" title="Permanent link">&para;</a></h2>
-<p>The <strong>Newton–Raphson Method</strong> is a faster, derivative-based technique that uses the tangent line at a given point to estimate the root.<br />
-It is one of the most efficient root-finding algorithms when the function is differentiable and the initial guess is close to the true root.</p>
-<p><strong>Formula:</strong>
-[
-x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
-]</p>
-<p><strong>Procedure:</strong>
-1. Choose an initial approximation <span class="arithmatex">\(x_0\)</span>.<br />
-2. Compute the next iteration using the formula above.<br />
-3. Continue until <span class="arithmatex">\(|x_{n+1} - x_n| &lt; \varepsilon\)</span>.</p>
-<p><strong>Advantages:</strong>
-- Rapid convergence near the root.<br />
-- Requires fewer iterations than the Bisection Method.  </p>
-<p><strong>Limitations:</strong>
-- Requires the derivative <span class="arithmatex">\(f'(x)\)</span>.<br />
-- May diverge if the initial guess is far from the actual root or if <span class="arithmatex">\(f'(x)\)</span> is close to zero.  </p>
+<p>The <strong>Newton–Raphson Method</strong> uses the tangent line at a point to find where the function crosses the x-axis.<br />
+It requires the derivative <span class="arithmatex">\( f'(x) \)</span> and a good initial guess <span class="arithmatex">\( x_0 \)</span>.</p>
+<p><strong>Formula:</strong>  </p>
+<div class="arithmatex">\[
+x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)}
+\]</div>
+<p><strong>Procedure:</strong><br />
+1. Choose a starting value <span class="arithmatex">\( x_0 \)</span>.<br />
+2. Use the formula to calculate a new value <span class="arithmatex">\( x_{i+1} \)</span>.<br />
+3. Repeat until <span class="arithmatex">\( |x_{i+1} - x_i| &lt; \varepsilon \)</span>.  </p>
+<p><strong>Advantages:</strong><br />
+- Very fast (quadratic) convergence if the first guess is close to the root.<br />
+- Needs fewer iterations than other methods.  </p>
+<p><strong>Limitations:</strong><br />
+- Requires the derivative <span class="arithmatex">\( f'(x) \)</span>.<br />
+- May fail if <span class="arithmatex">\( f'(x_i) = 0 \)</span> or if the first guess is not near the root.  </p>
 <hr />
 <h2 id="3-secant-method">3. Secant Method<a class="headerlink" href="#3-secant-method" title="Permanent link">&para;</a></h2>
-<p>The <strong>Secant Method</strong> is similar to the Newton–Raphson Method but eliminates the need for computing derivatives by approximating them using finite differences.<br />
-It uses two initial guesses to estimate the slope of the secant line passing through the function.</p>
-<p><strong>Formula:</strong>
-[
-x_{n+1} = x_n - f(x_n) \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}
-]</p>
-<p><strong>Procedure:</strong>
-1. Choose two initial approximations <span class="arithmatex">\(x_0\)</span> and <span class="arithmatex">\(x_1\)</span>.<br />
-2. Compute <span class="arithmatex">\(x_2\)</span> using the formula above.<br />
-3. Replace the older point and repeat the process until convergence.</p>
-<p><strong>Advantages:</strong>
-- Faster than the Bisection Method.<br />
-- Does not require the derivative <span class="arithmatex">\(f'(x)\)</span>.  </p>
-<p><strong>Limitations:</strong>
-- May fail if <span class="arithmatex">\(f(x_n) - f(x_{n-1}) = 0\)</span>.<br />
-- Convergence is not guaranteed if the initial guesses are poorly chosen.</p>
+<p>The <strong>Secant Method</strong> is similar to Newton–Raphson but does not require a derivative.<br />
+Instead, it estimates the slope using two recent points.</p>
+<p><strong>Formula:</strong>  </p>
+<div class="arithmatex">\[
+x_{i+1} = x_i - f(x_i) \frac{x_i - x_{i-1}}{f(x_i) - f(x_{i-1})}
+\]</div>
+<p><strong>Procedure:</strong><br />
+1. Choose two initial guesses <span class="arithmatex">\( x_0 \)</span> and <span class="arithmatex">\( x_1 \)</span>.<br />
+2. Use the formula to find <span class="arithmatex">\( x_{i+1} \)</span>.<br />
+3. Repeat until <span class="arithmatex">\( |x_{i+1} - x_i| &lt; \varepsilon \)</span>.  </p>
+<p><strong>Advantages:</strong><br />
+- Faster than Bisection and does not need the derivative.<br />
+- Easier to apply than Newton–Raphson.  </p>
+<p><strong>Limitations:</strong><br />
+- May fail if <span class="arithmatex">\( f(x_i) \)</span> and <span class="arithmatex">\( f(x_{i-1}) \)</span> are almost the same.<br />
+- Convergence is slower than Newton–Raphson.  </p>
 <hr />
 <h2 id="summary-of-methods">Summary of Methods<a class="headerlink" href="#summary-of-methods" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Method</th>
-<th>Requires Derivative</th>
-<th>Convergence Speed</th>
-<th>Reliability</th>
+<th><strong>Method</strong></th>
+<th><strong>Requires Derivative</strong></th>
+<th><strong>Convergence Speed</strong></th>
+<th><strong>Reliability</strong></th>
+<th><strong>Notes</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Bisection</td>
+<td><strong>Bisection</strong></td>
 <td>No</td>
 <td>Slow</td>
 <td>Always convergent</td>
+<td>Simple and reliable</td>
 </tr>
 <tr>
-<td>Newton–Raphson</td>
+<td><strong>Newton–Raphson</strong></td>
 <td>Yes</td>
 <td>Fast</td>
-<td>Conditional</td>
+<td>Depends on initial guess</td>
+<td>Needs <span class="arithmatex">\( f'(x) \)</span></td>
 </tr>
 <tr>
-<td>Secant</td>
-<td>No (approx.)</td>
+<td><strong>Secant</strong></td>
+<td>No</td>
 <td>Moderate</td>
-<td>Conditional</td>
+<td>Depends on initial guesses</td>
+<td>Approximates derivative</td>
 </tr>
 </tbody>
 </table>
-<p>Each of these methods provides a trade-off between speed, accuracy, and robustness.<br />
-In this project, all three were implemented in <strong>GNU Octave</strong> to compute the same root and compare their convergence behaviors.</p>
 
 
 

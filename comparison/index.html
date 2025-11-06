@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#5-comparison-of-numerical-methods" class="md-skip">
+        <a href="#comparison-of-methods" class="md-skip">
           Skip to content
         </a>
       
@@ -394,54 +394,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#51-convergence-rate" class="md-nav__link">
+  <a href="#51-bisection-method" class="md-nav__link">
     <span class="md-ellipsis">
-      5.1 Convergence Rate
+      5.1 Bisection Method
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#52-stability-and-robustness" class="md-nav__link">
+  <a href="#52-newtonraphson-method" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2 Stability and Robustness
+      5.2 Newton–Raphson Method
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#53-computational-effort" class="md-nav__link">
+  <a href="#53-secant-method" class="md-nav__link">
     <span class="md-ellipsis">
-      5.3 Computational Effort
+      5.3 Secant Method
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#54-error-behavior" class="md-nav__link">
+  <a href="#54-summary-of-comparison" class="md-nav__link">
     <span class="md-ellipsis">
-      5.4 Error Behavior
+      5.4 Summary of Comparison
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#55-overall-comparison" class="md-nav__link">
+  <a href="#55-final-remarks" class="md-nav__link">
     <span class="md-ellipsis">
-      5.5 Overall Comparison
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#56-discussion" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.6 Discussion
+      5.5 Final Remarks
     </span>
   </a>
   
@@ -570,54 +561,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#51-convergence-rate" class="md-nav__link">
+  <a href="#51-bisection-method" class="md-nav__link">
     <span class="md-ellipsis">
-      5.1 Convergence Rate
+      5.1 Bisection Method
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#52-stability-and-robustness" class="md-nav__link">
+  <a href="#52-newtonraphson-method" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2 Stability and Robustness
+      5.2 Newton–Raphson Method
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#53-computational-effort" class="md-nav__link">
+  <a href="#53-secant-method" class="md-nav__link">
     <span class="md-ellipsis">
-      5.3 Computational Effort
+      5.3 Secant Method
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#54-error-behavior" class="md-nav__link">
+  <a href="#54-summary-of-comparison" class="md-nav__link">
     <span class="md-ellipsis">
-      5.4 Error Behavior
+      5.4 Summary of Comparison
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#55-overall-comparison" class="md-nav__link">
+  <a href="#55-final-remarks" class="md-nav__link">
     <span class="md-ellipsis">
-      5.5 Overall Comparison
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#56-discussion" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.6 Discussion
+      5.5 Final Remarks
     </span>
   </a>
   
@@ -639,199 +621,110 @@
 
 
 
-<h1 id="5-comparison-of-numerical-methods">5. Comparison of Numerical Methods<a class="headerlink" href="#5-comparison-of-numerical-methods" title="Permanent link">&para;</a></h1>
-<p>This section compares the three numerical techniques — <strong>Bisection</strong>, <strong>Newton–Raphson</strong>, and <strong>Secant Methods</strong> — based on their performance, convergence rate, stability, and computational efficiency.<br />
-All methods were applied to the same test function <span class="arithmatex">\( f(x) = x^2 - 4 \)</span> and successfully converged to the root <span class="arithmatex">\( x = 2 \)</span>.</p>
+<h1 id="comparison-of-methods">Comparison of Methods<a class="headerlink" href="#comparison-of-methods" title="Permanent link">&para;</a></h1>
+<p>This section compares the three numerical methods used in this project — <strong>Bisection</strong>, <strong>Newton–Raphson</strong>, and <strong>Secant</strong> — based on how they find the root, their rate of convergence, and overall behavior.<br />
+Although all three methods aim to solve <span class="arithmatex">\( f(x) = 0 \)</span>, they differ in how the next value <span class="arithmatex">\( x_{i+1} \)</span> is calculated from previous iterations.</p>
 <hr />
-<h2 id="51-convergence-rate">5.1 Convergence Rate<a class="headerlink" href="#51-convergence-rate" title="Permanent link">&para;</a></h2>
+<h2 id="51-bisection-method">5.1 Bisection Method<a class="headerlink" href="#51-bisection-method" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The <strong>Bisection Method</strong> starts with two values <span class="arithmatex">\( a \)</span> and <span class="arithmatex">\( b \)</span> such that <span class="arithmatex">\( f(a) \times f(b) &lt; 0 \)</span>.  </li>
+<li>The midpoint is found by:<br />
+  $$
+  x_{i+1} = \frac{a + b}{2}
+  $$  </li>
+<li>The new interval is then selected based on the sign of <span class="arithmatex">\( f(x_{i+1}) \)</span>.  </li>
+<li>This process repeats until the difference between <span class="arithmatex">\( a \)</span> and <span class="arithmatex">\( b \)</span> becomes very small.</li>
+</ul>
+<p><strong>Main Points:</strong><br />
+- Converges <strong>slowly but always works</strong> if <span class="arithmatex">\( f(a)f(b) &lt; 0 \)</span>.<br />
+- Does <strong>not need derivatives</strong>.<br />
+- Each step cuts the interval in half.</p>
+<hr />
+<h2 id="52-newtonraphson-method">5.2 Newton–Raphson Method<a class="headerlink" href="#52-newtonraphson-method" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The <strong>Newton–Raphson Method</strong> uses the tangent line to find where the function crosses the x-axis.  </li>
+<li>Starting from an initial guess <span class="arithmatex">\( x_0 \)</span>, it applies the formula:<br />
+  $$
+  x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)}
+  $$  </li>
+<li>The next value <span class="arithmatex">\( x_{i+1} \)</span> is where the tangent line at <span class="arithmatex">\( (x_i, f(x_i)) \)</span> meets the x-axis.</li>
+</ul>
+<p><strong>Main Points:</strong><br />
+- <strong>Very fast</strong> convergence if the first guess is close to the actual root.<br />
+- Needs the <strong>first derivative</strong> <span class="arithmatex">\( f'(x) \)</span>.<br />
+- Might <strong>diverge</strong> if <span class="arithmatex">\( f'(x_i) = 0 \)</span> or if the first guess is poor.</p>
+<hr />
+<h2 id="53-secant-method">5.3 Secant Method<a class="headerlink" href="#53-secant-method" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The <strong>Secant Method</strong> is similar to Newton–Raphson but uses two previous points instead of a derivative.  </li>
+<li>The formula is:<br />
+  $$
+  x_{i+1} = x_i - f(x_i) \frac{x_i - x_{i-1}}{f(x_i) - f(x_{i-1})}
+  $$  </li>
+<li>It uses the slope of the secant line between <span class="arithmatex">\( (x_{i-1}, f(x_{i-1})) \)</span> and <span class="arithmatex">\( (x_i, f(x_i)) \)</span>.</li>
+</ul>
+<p><strong>Main Points:</strong><br />
+- <strong>Faster</strong> than Bisection but a bit <strong>slower</strong> than Newton–Raphson.<br />
+- <strong>No derivative</strong> is required.<br />
+- Can fail if <span class="arithmatex">\( f(x_i) \)</span> and <span class="arithmatex">\( f(x_{i-1}) \)</span> are nearly the same.</p>
+<hr />
+<h2 id="54-summary-of-comparison">5.4 Summary of Comparison<a class="headerlink" href="#54-summary-of-comparison" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Method</th>
-<th>Convergence Type</th>
-<th>Order of Convergence</th>
-<th>Speed</th>
+<th><strong>Feature</strong></th>
+<th><strong>Bisection</strong></th>
+<th><strong>Newton–Raphson</strong></th>
+<th><strong>Secant</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Bisection</strong></td>
-<td>Linear</td>
-<td>1</td>
+<td><strong>Derivative Required</strong></td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Initial Guesses</strong></td>
+<td>Two points <span class="arithmatex">\( a, b \)</span></td>
+<td>One point <span class="arithmatex">\( x_0 \)</span></td>
+<td>Two points <span class="arithmatex">\( x_0, x_1 \)</span></td>
+</tr>
+<tr>
+<td><strong>Formula</strong></td>
+<td><span class="arithmatex">\( x_{i+1} = \frac{a + b}{2} \)</span></td>
+<td><span class="arithmatex">\( x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)} \)</span></td>
+<td><span class="arithmatex">\( x_{i+1} = x_i - f(x_i) \frac{x_i - x_{i-1}}{f(x_i) - f(x_{i-1})} \)</span></td>
+</tr>
+<tr>
+<td><strong>Convergence Speed</strong></td>
 <td>Slow</td>
-</tr>
-<tr>
-<td><strong>Newton–Raphson</strong></td>
-<td>Quadratic</td>
-<td>2</td>
 <td>Fast</td>
-</tr>
-<tr>
-<td><strong>Secant</strong></td>
-<td>Superlinear</td>
-<td>≈1.618 (Golden Ratio)</td>
 <td>Moderate</td>
 </tr>
-</tbody>
-</table>
-<ul>
-<li>The <strong>Bisection Method</strong> converges linearly, meaning the number of accurate digits increases by roughly one per iteration.  </li>
-<li>The <strong>Newton–Raphson Method</strong> converges quadratically, rapidly doubling the number of accurate digits per iteration once near the root.  </li>
-<li>The <strong>Secant Method</strong> lies between the two — faster than Bisection but slightly slower than Newton–Raphson.</li>
-</ul>
-<hr />
-<h2 id="52-stability-and-robustness">5.2 Stability and Robustness<a class="headerlink" href="#52-stability-and-robustness" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
 <tr>
-<th style="text-align: left;">Method</th>
-<th style="text-align: center;">Stability</th>
-<th style="text-align: center;">Derivative Required</th>
-<th style="text-align: center;">Guaranteed Convergence</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Bisection</strong></td>
-<td style="text-align: center;">High</td>
-<td style="text-align: center;">No</td>
-<td style="text-align: center;">Yes</td>
+<td><strong>Stability</strong></td>
+<td>Always convergent</td>
+<td>May diverge</td>
+<td>May diverge</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Newton–Raphson</strong></td>
-<td style="text-align: center;">Medium</td>
-<td style="text-align: center;">Yes</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Secant</strong></td>
-<td style="text-align: center;">Medium</td>
-<td style="text-align: center;">No</td>
-<td style="text-align: center;">No</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>Bisection</strong> is the most <strong>stable</strong> method, as it always converges if <span class="arithmatex">\(f(a)f(b) &lt; 0\)</span>.  </li>
-<li><strong>Newton–Raphson</strong> is <strong>sensitive</strong> to the initial guess — it may diverge if the starting value is far from the true root or if <span class="arithmatex">\(f'(x)\)</span> ≈ 0.  </li>
-<li><strong>Secant</strong> removes the need for a derivative but sacrifices guaranteed convergence in exchange for speed.</li>
-</ul>
-<hr />
-<h2 id="53-computational-effort">5.3 Computational Effort<a class="headerlink" href="#53-computational-effort" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Method</th>
-<th style="text-align: center;">Function Evaluations per Iteration</th>
-<th style="text-align: center;">Memory Usage</th>
-<th style="text-align: center;">Implementation Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Bisection</strong></td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">Low</td>
-<td style="text-align: center;">Easy</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Newton–Raphson</strong></td>
-<td style="text-align: center;">2 (f &amp; f′)</td>
-<td style="text-align: center;">Low</td>
-<td style="text-align: center;">Moderate</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Secant</strong></td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">Low</td>
-<td style="text-align: center;">Easy</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>Bisection</strong> is computationally simple but may require more iterations.  </li>
-<li><strong>Newton–Raphson</strong> demands derivative computation at each step, increasing effort but reducing total iterations.  </li>
-<li><strong>Secant</strong> uses two function evaluations but avoids symbolic differentiation, making it efficient for non-analytic functions.</li>
-</ul>
-<hr />
-<h2 id="54-error-behavior">5.4 Error Behavior<a class="headerlink" href="#54-error-behavior" title="Permanent link">&para;</a></h2>
-<p>The error <span class="arithmatex">\(E_n = |x_n - x_{true}|\)</span> decreases differently for each method:</p>
-<ul>
-<li><strong>Bisection:</strong> Error reduces linearly with interval halving:<br />
-  [
-  E_n = \frac{b - a}{2^n}
-  ]</li>
-<li><strong>Newton–Raphson:</strong> Error decreases quadratically:<br />
-  [
-  E_{n+1} \approx C \cdot E_n^2
-  ]</li>
-<li><strong>Secant:</strong> Error follows a superlinear relationship:<br />
-  [
-  E_{n+1} \approx C \cdot E_n^{1.618}
-  ]</li>
-</ul>
-<p>Thus, Newton–Raphson achieves faster convergence if the derivative is well-behaved.</p>
-<hr />
-<h2 id="55-overall-comparison">5.5 Overall Comparison<a class="headerlink" href="#55-overall-comparison" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Criterion</th>
-<th style="text-align: center;"><strong>Bisection</strong></th>
-<th style="text-align: center;"><strong>Newton–Raphson</strong></th>
-<th style="text-align: center;"><strong>Secant</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Accuracy</td>
-<td style="text-align: center;">High</td>
-<td style="text-align: center;">Very High</td>
-<td style="text-align: center;">High</td>
-</tr>
-<tr>
-<td style="text-align: left;">Convergence Speed</td>
-<td style="text-align: center;">Slow</td>
-<td style="text-align: center;">Fast</td>
-<td style="text-align: center;">Moderate</td>
-</tr>
-<tr>
-<td style="text-align: left;">Stability</td>
-<td style="text-align: center;">Excellent</td>
-<td style="text-align: center;">Sensitive to initial guess</td>
-<td style="text-align: center;">Sensitive to initial guesses</td>
-</tr>
-<tr>
-<td style="text-align: left;">Requires Derivative</td>
-<td style="text-align: center;">No</td>
-<td style="text-align: center;">Yes</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr>
-<td style="text-align: left;">Ease of Implementation</td>
-<td style="text-align: center;">Easy</td>
-<td style="text-align: center;">Moderate</td>
-<td style="text-align: center;">Easy</td>
-</tr>
-<tr>
-<td style="text-align: left;">Best Use Case</td>
-<td style="text-align: center;">When guaranteed convergence is needed</td>
-<td style="text-align: center;">When speed is crucial</td>
-<td style="text-align: center;">When derivative is unavailable</td>
+<td><strong>Ease of Use</strong></td>
+<td>Very Easy</td>
+<td>Moderate</td>
+<td>Easy</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="56-discussion">5.6 Discussion<a class="headerlink" href="#56-discussion" title="Permanent link">&para;</a></h2>
-<p>The <strong>Newton–Raphson Method</strong> demonstrated the fastest convergence and highest precision among all three techniques.<br />
-However, its dependence on the derivative and sensitivity to initial guesses can lead to divergence under poor conditions.</p>
-<p>The <strong>Bisection Method</strong> remains the most reliable option, ensuring convergence as long as the initial interval brackets the root.<br />
-The <strong>Secant Method</strong> offers an excellent balance — combining simplicity and efficiency without requiring a derivative.</p>
-<p>Overall, the choice of method depends on the <strong>nature of the function</strong>, <strong>availability of derivatives</strong>, and <strong>required precision</strong>.<br />
-In practical applications:
-- Use <strong>Bisection</strong> for safety and guaranteed results.<br />
-- Use <strong>Newton–Raphson</strong> when speed is essential and derivatives are known.<br />
-- Use <strong>Secant</strong> when derivatives are difficult or impossible to compute.</p>
+<h2 id="55-final-remarks">5.5 Final Remarks<a class="headerlink" href="#55-final-remarks" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The <strong>Bisection Method</strong> is the safest and always converges but is the slowest.  </li>
+<li>The <strong>Newton–Raphson Method</strong> is the fastest and most accurate if the derivative is available.  </li>
+<li>The <strong>Secant Method</strong> provides a balance — it is faster than Bisection and simpler than Newton–Raphson.  </li>
+</ul>
+<p>Overall, the <strong>Newton–Raphson method</strong> performed best in this project because it reached the correct root in fewer iterations, while all three methods produced the same final result (<strong>x = 2</strong>).</p>
 
 
 

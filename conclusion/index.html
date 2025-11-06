@@ -604,36 +604,36 @@
 
 
 <h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
-<p>This project explored and implemented three fundamental numerical techniques — <strong>Bisection</strong>, <strong>Newton–Raphson</strong>, and <strong>Secant Methods</strong> — to solve nonlinear equations that cannot be expressed or solved analytically.<br />
-Through careful computational experiments and visual analysis, the performance, accuracy, and convergence rate of each method were systematically compared.</p>
+<p>This project used three numerical methods — <strong>Bisection</strong>, <strong>Newton–Raphson</strong>, and <strong>Secant</strong> — to find the root of nonlinear equations that cannot be solved exactly.<br />
+Each method was tested and compared to study how fast and accurately it converges to the correct solution.</p>
 <hr />
 <h2 id="61-summary-of-findings">6.1 Summary of Findings<a class="headerlink" href="#61-summary-of-findings" title="Permanent link">&para;</a></h2>
 <ul>
-<li>All three methods successfully found the root of the test function <span class="arithmatex">\( f(x) = x^2 - 4 \)</span> at <strong>x = 2</strong>.  </li>
-<li>The <strong>Bisection Method</strong> was the most reliable, as it guarantees convergence when the initial interval is properly chosen.  </li>
-<li>The <strong>Newton–Raphson Method</strong> demonstrated the fastest convergence rate, achieving the root within a few iterations.  </li>
-<li>The <strong>Secant Method</strong> offered a good compromise between efficiency and simplicity, performing well without requiring derivative computation.</li>
+<li>All three methods found the same root for <span class="arithmatex">\( f(x) = x^2 - 4 \)</span>, which is <strong>x = 2</strong>.  </li>
+<li>The <strong>Bisection Method</strong> was the most reliable since it always converges when the function changes sign in the interval.  </li>
+<li>The <strong>Newton–Raphson Method</strong> was the fastest, reaching the correct answer in the fewest steps.  </li>
+<li>The <strong>Secant Method</strong> gave accurate results without needing the derivative and was faster than Bisection.</li>
 </ul>
-<p>These results confirm the theoretical expectations of convergence order and demonstrate how initial guesses, tolerance levels, and computational precision affect numerical accuracy.</p>
+<p>These results agree with what was expected from the course material and slides — Newton–Raphson has the highest speed, while Bisection guarantees convergence.</p>
 <hr />
 <h2 id="62-reflection">6.2 Reflection<a class="headerlink" href="#62-reflection" title="Permanent link">&para;</a></h2>
-<p>This project enhanced the understanding of:
-- How iterative numerical techniques approach a root through successive approximations.<br />
-- The trade-offs between <strong>stability</strong>, <strong>speed</strong>, and <strong>accuracy</strong> when applying each method.<br />
-- The importance of algorithm design in ensuring that numerical computations remain efficient and error-tolerant.</p>
-<p>The hands-on implementation using <strong>GNU Octave</strong> (and MATLAB-compatible syntax) reinforced both <strong>mathematical theory</strong> and <strong>computational practice</strong>, bridging the gap between analytical equations and digital problem-solving.</p>
+<p>Through this project, we learned how:
+- Iterative methods gradually move closer to the root.<br />
+- Each method has different trade-offs between <strong>speed</strong>, <strong>accuracy</strong>, and <strong>stability</strong>.<br />
+- The choice of initial guess and tolerance affects how well the method performs.</p>
+<p>By using <strong>GNU Octave</strong>, we were able to apply the mathematical theory directly through coding.<br />
+This helped connect what was learned in class with practical problem-solving using software tools.</p>
 <hr />
 <h2 id="63-future-work">6.3 Future Work<a class="headerlink" href="#63-future-work" title="Permanent link">&para;</a></h2>
-<p>For further enhancement, the following directions are recommended:
-- Implementing <strong>adaptive step-size control</strong> to improve convergence reliability.<br />
-- Extending the project to handle <strong>systems of nonlinear equations</strong>.<br />
-- Integrating <strong>graphical user interfaces (GUIs)</strong> for better visualization of iterations.<br />
-- Comparing these methods with advanced algorithms like <strong>Fixed Point Iteration</strong>, <strong>Hybrid Methods</strong>, or <strong>Brent’s Method</strong> for broader insight.</p>
+<p>To improve this project in the future, we could:
+- Add <strong>graphical visualizations</strong> to show how the root changes with each iteration.<br />
+- Apply the methods to <strong>different functions</strong> or <strong>systems of equations</strong>.<br />
+- Compare these methods with other techniques like <strong>Fixed-Point Iteration</strong> or <strong>Hybrid Methods</strong> to study more complex cases.</p>
 <hr />
 <h2 id="64-final-thoughts">6.4 Final Thoughts<a class="headerlink" href="#64-final-thoughts" title="Permanent link">&para;</a></h2>
-<p>The exploration of numerical root-finding methods demonstrates their critical role in modern computational mathematics.<br />
-From simple academic exercises to large-scale engineering applications, these techniques remain essential tools for scientists, engineers, and developers worldwide.<br />
-Their enduring relevance lies in their adaptability — balancing mathematical rigor with computational practicality.</p>
+<p>This project shows how numerical methods are powerful tools in <strong>mathematics and engineering</strong>.<br />
+Even when a problem has no exact solution, these techniques allow us to find accurate approximations.<br />
+Among the three methods, <strong>Newton–Raphson</strong> proved to be the fastest, but <strong>Bisection</strong> remains the most dependable when accuracy and guaranteed convergence are needed.</p>
 
 
 
