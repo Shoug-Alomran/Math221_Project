@@ -1,5 +1,5 @@
-site_name: Math 221 - Numerical Analysis Project
-site_description: Bisection, Newton-Raphson, and Secant methods with results and applications
+site_name: Math 221 – Numerical Analysis Project
+site_description: Bisection, Newton–Raphson, and Secant methods with results and applications
 site_url: https://shoug-alomran.github.io/Math221_Numerical-Analysis/
 
 theme:
@@ -8,6 +8,7 @@ theme:
   features:
     - navigation.top
     - navigation.sections
+    - navigation.expand
     - content.code.copy
   palette:
     - media: "(prefers-color-scheme: light)"
@@ -29,13 +30,9 @@ nav:
   - Home: index.md
   - Abstract: abstract.md
   - Introduction: introduction.md
-  - Methods:
-      - Overview: methods.md
-      - Bisection: methods.md#bisection-method
-      - Newton-Raphson: methods.md#newton-raphson-method
-      - Secant: methods.md#secant-method
+  - Methods: methods.md
   - Results: results.md
-  - Comparison with MATLAB/Octave: comparison.md
+  - Comparison of Methods: comparison.md
   - Applications: applications.md
   - Conclusion: conclusion.md
   - References: references.md
