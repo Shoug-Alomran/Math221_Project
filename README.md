@@ -21,6 +21,7 @@ The study emphasizes how iterative techniques provide approximate solutions wher
 ---
 
 ### Key Features
+
 - Step-by-step iteration logs printed in the terminal  
 - Approximate root computation for each method  
 - Function plot showing the true root at **x = 2**  
