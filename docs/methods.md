@@ -90,9 +90,9 @@ x_{n+1} = x_n - f(x_n) \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}
 
 | Method           | Requires Derivative | Convergence Speed | Reliability |
 |------------------|--------------------|------------------|--------------|
-| Bisection        | ❌ No              | Slow             | Always convergent |
-| Newton–Raphson   | ✅ Yes             | Fast             | Conditional |
-| Secant           | ❌ No (approx.)    | Moderate         | Conditional |
+| Bisection        | No              | Slow             | Always convergent |
+| Newton–Raphson   | Yes             | Fast             | Conditional |
+| Secant           | No (approx.)    | Moderate         | Conditional |
 
 Each of these methods provides a trade-off between speed, accuracy, and robustness.  
 In this project, all three were implemented in **GNU Octave** to compute the same root and compare their convergence behaviors.

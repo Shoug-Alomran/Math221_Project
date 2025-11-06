@@ -23,9 +23,9 @@ All methods were applied to the same test function \( f(x) = x^2 - 4 \) and succ
 
 | Method | Stability | Derivative Required | Guaranteed Convergence |
 |:--|:--:|:--:|:--:|
-| **Bisection** | ✅ High | ❌ No | ✅ Yes |
-| **Newton–Raphson** | ⚠️ Medium | ✅ Yes | ❌ No |
-| **Secant** | ⚠️ Medium | ❌ No | ❌ No |
+| **Bisection** | High | No | Yes |
+| **Newton–Raphson** | Medium | Yes | No |
+| **Secant** | Medium | No | No |
 
 - **Bisection** is the most **stable** method, as it always converges if \(f(a)f(b) < 0\).  
 - **Newton–Raphson** is **sensitive** to the initial guess — it may diverge if the starting value is far from the true root or if \(f'(x)\) ≈ 0.  
@@ -75,8 +75,8 @@ Thus, Newton–Raphson achieves faster convergence if the derivative is well-beh
 | Accuracy | High | Very High | High |
 | Convergence Speed | Slow | Fast | Moderate |
 | Stability | Excellent | Sensitive to initial guess | Sensitive to initial guesses |
-| Requires Derivative | ❌ | ✅ | ❌ |
-| Ease of Implementation | ✅ Easy | ⚙️ Moderate | ✅ Easy |
+| Requires Derivative | No | Yes | No |
+| Ease of Implementation | Easy | Moderate | Easy |
 | Best Use Case | When guaranteed convergence is needed | When speed is crucial | When derivative is unavailable |
 
 ---

@@ -88,7 +88,7 @@ The **Newton–Raphson** method exhibits the steepest decline, confirming its fa
 |:--|:--:|:--:|:--:|
 | Root Found | 2.000000 | 2.000000 | 2.000000 |
 | Iterations | 1 | 5 | 6 |
-| Requires Derivative | ❌ | ✅ | ❌ |
+| Requires Derivative | No | Yes | No |
 | Convergence Type | Linear | Quadratic | Superlinear |
 | Stability | High | Medium | Medium |
 
