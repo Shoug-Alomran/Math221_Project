@@ -8,7 +8,6 @@ theme:
   features:
     - navigation.top
     - navigation.sections
-    - navigation.expand
     - content.code.copy
   palette:
     - media: "(prefers-color-scheme: light)"
@@ -33,7 +32,7 @@ nav:
   - Methods:
       - Overview: methods.md
       - Bisection: methods.md#bisection-method
-      - Newton–Raphson: methods.md#newton-raphson-method
+      - Newton-Raphson: methods.md#newton-raphson-method
       - Secant: methods.md#secant-method
   - Results: results.md
   - Comparison with MATLAB/Octave: comparison.md
