@@ -1,22 +1,28 @@
-# Introduction
+# Introduction  
 
-The field of **Numerical Analysis** provides systematic techniques to find approximate solutions to mathematical problems that cannot be solved analytically.  
-This project focuses on solving nonlinear equations of the form:
+**Numerical Analysis** is a branch of applied mathematics that provides methods to find approximate solutions when exact analytical solutions are not possible.  
+In many real problems, equations cannot be solved by simple algebra, especially when they are nonlinear.  
+In such cases, numerical methods are used to find values of \( x \) that satisfy:
 
-\[
+$$
 f(x) = 0
-\]
+$$
 
-where the root \(x\) represents the point at which the function crosses the x-axis.  
-Such problems are common in applied mathematics, physics, and engineering—especially when exact algebraic solutions are impractical or impossible to obtain.
+where the root \( x \) represents the point at which the function crosses the x-axis.  
+These types of problems are common in **engineering**, **physics**, and **computer science**, where models are based on complex mathematical relationships.
 
-To address this, three numerical methods are explored and compared in this study:  
-**Bisection**, **Newton–Raphson**, and **Secant Methods**.  
-These algorithms use iterative procedures to gradually approach the true root of the function by improving an initial approximation at each step.
+---
 
-The goal of this project is to:
-- Demonstrate the implementation of each method using computational tools such as **GNU Octave** (compatible with MATLAB).  
-- Compare their performance based on convergence speed, accuracy, and number of iterations.  
-- Illustrate their applications in computer science and engineering fields.
+This project studies three important numerical methods for solving nonlinear equations:  
+**Bisection**, **Newton–Raphson**, and **Secant**.  
+Each of these methods uses an **iterative process** — starting from one or more initial guesses and improving them step by step until the result is close to the true root.
 
-This work aims to help students understand not only the mechanics of numerical algorithms but also their practical importance in real-world problem-solving, optimization, and simulation processes.
+The main goals of this project are to:
+- Implement each method using **GNU Octave** (MATLAB-compatible software).  
+- Compare the methods in terms of **speed of convergence**, **accuracy**, and **number of iterations**.  
+- Relate the methods to practical **applications in science and engineering**.
+
+---
+
+By completing this project, students gain a clearer understanding of how numerical algorithms work and why they are important in real-world problem solving, optimization, and simulation.  
+These methods show how mathematics can be applied using computers to solve problems that would otherwise be too difficult to handle analytically.

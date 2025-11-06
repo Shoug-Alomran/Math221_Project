@@ -1,98 +1,100 @@
-# Methods
+# Methods  
 
-This section explains the three numerical methods applied in this project to find the roots of nonlinear equations: **Bisection**, **Newton–Raphson**, and **Secant** methods.  
-Each method is based on iterative computation that refines an initial estimate of the root until a predefined tolerance is satisfied.
-
----
-
-## 1. Bisection Method
-
-The **Bisection Method** is a simple and reliable root-finding technique that repeatedly divides an interval in half and selects the subinterval that contains the root.  
-It is based on the **Intermediate Value Theorem**, which states that if \(f(a)\) and \(f(b)\) have opposite signs, there must exist at least one root between them.
-
-**Procedure:**
-1. Choose two initial guesses \(a\) and \(b\) such that \(f(a) \times f(b) < 0\).  
-2. Compute the midpoint:
-   \[
-   x_m = \frac{a + b}{2}
-   \]
-3. Evaluate \(f(x_m)\):
-   - If \(f(a) \times f(x_m) < 0\), the root lies in \([a, x_m]\).
-   - Otherwise, it lies in \([x_m, b]\).
-4. Repeat until the interval width \(|b - a|\) is less than the given tolerance \(\varepsilon\).
-
-**Stopping Criterion:**
-\[
-|f(x_m)| < \varepsilon
-\]
-
-**Advantages:**
-- Always convergent if \(f(a)f(b) < 0\).
-- Simple and easy to implement.
-
-**Limitations:**
-- Slow convergence rate.
-- Requires the sign of \(f(a)\) and \(f(b)\) to be opposite.
+This section explains the three numerical methods used in this project to find the root of a nonlinear equation: **Bisection**, **Newton–Raphson**, and **Secant**.  
+Each method improves an initial guess step by step until the value of \( x \) becomes close enough to the actual root within a chosen tolerance.
 
 ---
 
-## 2. Newton–Raphson Method
+## 1. Bisection Method  
 
-The **Newton–Raphson Method** is a faster, derivative-based technique that uses the tangent line at a given point to estimate the root.  
-It is one of the most efficient root-finding algorithms when the function is differentiable and the initial guess is close to the true root.
+The **Bisection Method** is a simple and reliable way to find a root by dividing an interval in half repeatedly and choosing the part where the function changes sign.  
+It is based on the **Intermediate Value Theorem**, which states that if \( f(a) \) and \( f(b) \) have opposite signs, then there is at least one root between them.
 
-**Formula:**
-\[
-x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
-\]
+**Procedure:**  
+1. Choose two values \( a \) and \( b \) such that \( f(a) \times f(b) < 0 \).  
+2. Find the midpoint:  
 
-**Procedure:**
-1. Choose an initial approximation \(x_0\).  
-2. Compute the next iteration using the formula above.  
-3. Continue until \(|x_{n+1} - x_n| < \varepsilon\).
+$$
+x_{i+1} = \frac{a + b}{2}
+$$
 
-**Advantages:**
-- Rapid convergence near the root.  
-- Requires fewer iterations than the Bisection Method.  
+3. Check the sign of \( f(x_{i+1}) \):  
+   - If \( f(a) \times f(x_{i+1}) < 0 \), set \( b = x_{i+1} \).  
+   - Otherwise, set \( a = x_{i+1} \).  
+4. Continue until the interval \( |b - a| \) is smaller than the chosen tolerance \( \varepsilon \).  
 
-**Limitations:**
-- Requires the derivative \(f'(x)\).  
-- May diverge if the initial guess is far from the actual root or if \(f'(x)\) is close to zero.  
+**Stopping Criterion:**  
 
----
+$$
+|f(x_{i+1})| < \varepsilon
+$$  
 
-## 3. Secant Method
+**Advantages:**  
+- Always converges if \( f(a)f(b) < 0 \).  
+- Simple and easy to apply.  
 
-The **Secant Method** is similar to the Newton–Raphson Method but eliminates the need for computing derivatives by approximating them using finite differences.  
-It uses two initial guesses to estimate the slope of the secant line passing through the function.
-
-**Formula:**
-\[
-x_{n+1} = x_n - f(x_n) \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}
-\]
-
-**Procedure:**
-1. Choose two initial approximations \(x_0\) and \(x_1\).  
-2. Compute \(x_2\) using the formula above.  
-3. Replace the older point and repeat the process until convergence.
-
-**Advantages:**
-- Faster than the Bisection Method.  
-- Does not require the derivative \(f'(x)\).  
-
-**Limitations:**
-- May fail if \(f(x_n) - f(x_{n-1}) = 0\).  
-- Convergence is not guaranteed if the initial guesses are poorly chosen.
+**Limitations:**  
+- Convergence is slow.  
+- Requires that the initial interval contains a sign change.  
 
 ---
 
-## Summary of Methods
+## 2. Newton–Raphson Method  
 
-| Method           | Requires Derivative | Convergence Speed | Reliability |
-|------------------|--------------------|------------------|--------------|
-| Bisection        | No              | Slow             | Always convergent |
-| Newton–Raphson   | Yes             | Fast             | Conditional |
-| Secant           | No (approx.)    | Moderate         | Conditional |
+The **Newton–Raphson Method** uses the tangent line at a point to find where the function crosses the x-axis.  
+It requires the derivative \( f'(x) \) and a good initial guess \( x_0 \).
 
-Each of these methods provides a trade-off between speed, accuracy, and robustness.  
-In this project, all three were implemented in **GNU Octave** to compute the same root and compare their convergence behaviors.
+**Formula:**  
+
+$$
+x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)}
+$$
+
+**Procedure:**  
+1. Choose a starting value \( x_0 \).  
+2. Use the formula to calculate a new value \( x_{i+1} \).  
+3. Repeat until \( |x_{i+1} - x_i| < \varepsilon \).  
+
+**Advantages:**  
+- Very fast (quadratic) convergence if the first guess is close to the root.  
+- Needs fewer iterations than other methods.  
+
+**Limitations:**  
+- Requires the derivative \( f'(x) \).  
+- May fail if \( f'(x_i) = 0 \) or if the first guess is not near the root.  
+
+---
+
+## 3. Secant Method  
+
+The **Secant Method** is similar to Newton–Raphson but does not require a derivative.  
+Instead, it estimates the slope using two recent points.
+
+**Formula:**  
+
+$$
+x_{i+1} = x_i - f(x_i) \frac{x_i - x_{i-1}}{f(x_i) - f(x_{i-1})}
+$$
+
+**Procedure:**  
+1. Choose two initial guesses \( x_0 \) and \( x_1 \).  
+2. Use the formula to find \( x_{i+1} \).  
+3. Repeat until \( |x_{i+1} - x_i| < \varepsilon \).  
+
+**Advantages:**  
+- Faster than Bisection and does not need the derivative.  
+- Easier to apply than Newton–Raphson.  
+
+**Limitations:**  
+- May fail if \( f(x_i) \) and \( f(x_{i-1}) \) are almost the same.  
+- Convergence is slower than Newton–Raphson.  
+
+---
+
+## Summary of Methods  
+
+| **Method** | **Requires Derivative** | **Convergence Speed** | **Reliability** | **Notes** |
+|-------------|-------------------------|-----------------------|-----------------|------------|
+| **Bisection** | No | Slow | Always convergent | Simple and reliable |
+| **Newton–Raphson** | Yes | Fast | Depends on initial guess | Needs \( f'(x) \) |
+| **Secant** | No | Moderate | Depends on initial guesses | Approximates derivative |

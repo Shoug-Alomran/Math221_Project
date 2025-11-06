@@ -1,11 +1,10 @@
-# Abstract
+# Abstract  
 
-The present project studies three numerical techniques—**Bisection**, **Newton–Raphson**, and **Secant Methods**—used to approximate the roots of nonlinear equations.  
-These algorithms have become indispensable tools in computational mathematics since many equations cannot be solved analytically due to complexity or impossibility of closed-form evaluation.
+This project focuses on three numerical methods — **Bisection**, **Newton–Raphson**, and **Secant** — to find the root of a nonlinear equation.  
+These methods are used when equations cannot be solved exactly and an approximate solution is needed.
 
-Each method was implemented and tested using **GNU Octave 10.3.0** to determine its convergence behavior, accuracy, and computational efficiency.  
-Through iterative procedures, each algorithm refined an initial estimate until it approached the actual root within a predefined tolerance.
+Each method was implemented using **GNU Octave** to observe how fast and accurately it converges to the correct root.  
+Through repeated iterations, the methods improve an initial guess until the result becomes very close to the true value.
 
-The project compares the strengths and limitations of each approach.  
-While all methods successfully converged to the same root (**x = 2**), the **Newton–Raphson method** achieved the fastest convergence rate.  
-The results highlight how numerical methods serve as practical and reliable tools in **science, engineering, and computer applications**, enabling the solution of complex problems that are otherwise analytically unsolvable.
+The comparison shows that all three methods reached the same solution (**x = 2**), but the **Newton–Raphson method** converged the fastest.  
+The study demonstrates how numerical methods are important in solving practical problems in **mathematics, engineering, and computer science** where analytical solutions are difficult or impossible to obtain.

@@ -1,42 +1,42 @@
-# Results
+# Results  
 
-This section presents the computational results obtained from implementing the **Bisection**, **Newton–Raphson**, and **Secant Methods** for solving nonlinear equations.  
-All three methods were applied to the same test function to compare their performance in terms of convergence rate, number of iterations, and accuracy.
+This section presents the results obtained from applying the **Bisection**, **Newton–Raphson**, and **Secant** methods to solve a nonlinear equation.  
+All methods were implemented in **GNU Octave** to compare their convergence, number of iterations, and overall accuracy.
 
 ---
 
-## 4.1 Function Used
+## 4.1 Function Used  
 
-The function chosen for analysis was:
+The function chosen for analysis is:
 
-\[
+$$
 f(x) = x^2 - 4
-\]
+$$
 
-The true root of the function is \(x = 2\), since \(2^2 - 4 = 0\).  
-This function was selected for its simplicity and because it allows straightforward comparison among methods while still demonstrating convergence behavior.
+The exact root of this function is \( x = 2 \), since \( 2^2 - 4 = 0 \).  
+This function was selected because it is simple yet suitable for observing the convergence behavior of each method.
 
 ---
 
-## 4.2 Iterative Results
+## 4.2 Iterative Results  
 
 Each method was executed in **GNU Octave 10.3.0** (compatible with MATLAB).  
-The following table summarizes the number of iterations required to reach the approximate root with a tolerance of \(10^{-6}\):
+The table below summarizes the number of iterations required to reach the approximate root using a tolerance of \( 10^{-6} \):
 
-| Method           | Approximate Root | Converged in Iterations | Remarks |
-|------------------|------------------|--------------------------|----------|
-| **Bisection**        | 2.000000 | 1 | Fast convergence due to perfect midpoint. |
-| **Newton–Raphson**   | 2.000000 | 5 | Rapid quadratic convergence near the root. |
-| **Secant**           | 2.000000 | 6 | Slightly slower but accurate without derivative. |
+| **Method** | **Approximate Root** | **Iterations** | **Remarks** |
+|-------------|----------------------|----------------|--------------|
+| **Bisection** | 2.000000 | 1 | Fast convergence due to midpoint symmetry. |
+| **Newton–Raphson** | 2.000000 | 5 | Fast quadratic convergence. |
+| **Secant** | 2.000000 | 6 | Slightly slower but accurate without derivative. |
 
-All three methods successfully converged to the same correct root **(x = 2)**.  
-The **Newton–Raphson method** showed the fastest convergence, as expected for derivative-based algorithms.
+All three methods successfully reached the same root, \( x = 2 \).  
+Among them, the **Newton–Raphson Method** converged the fastest.
 
 ---
 
-## 4.3 Sample Iteration Output (from Octave)
+## 4.3 Sample Output from Octave  
 
-Below is an example of the terminal output for the Newton–Raphson method:
+Below is an example of the terminal output for the **Newton–Raphson Method**:
 
 ```bash
 Enter initial guess x0 = 1
@@ -65,42 +65,46 @@ The figures below illustrate the computational results and graphical output obta
 
 ---
 
-## 4.5 Observations
+## 4.5 Observations  
 
-- All three methods reached the same correct solution within acceptable tolerance.  
-- **Newton–Raphson** demonstrated **quadratic convergence**, requiring fewer iterations.  
-- **Bisection** was the most stable but the slowest method.  
-- **Secant** performed efficiently while eliminating the need for derivatives.  
-- Computational error decreased steadily with each iteration.
-
----
-
-## 4.6 Error vs. Iteration Plot
-
-The error plot (Figure 2) highlights how each method’s error decreases as iterations progress.  
-The **Newton–Raphson** method exhibits the steepest decline, confirming its faster convergence rate.
+- All three methods converged to the same solution with very small error.  
+- The **Newton–Raphson Method** showed the fastest convergence because of its quadratic rate.  
+- The **Bisection Method** was the most stable but required fewer computational steps in this special case.  
+- The **Secant Method** performed well without the need for derivatives.  
+- In all methods, the error decreased steadily as the number of iterations increased.
 
 ---
 
-## 4.7 Summary of Results
+## 4.6 Error vs. Iteration  
 
-| Metric | Bisection | Newton–Raphson | Secant |
-|:--|:--:|:--:|:--:|
-| Root Found | 2.000000 | 2.000000 | 2.000000 |
-| Iterations | 1 | 5 | 6 |
-| Requires Derivative | No | Yes | No |
-| Convergence Type | Linear | Quadratic | Superlinear |
-| Stability | High | Medium | Medium |
-
-All numerical methods achieved accurate results.  
-However, **Newton–Raphson** proved to be the most efficient, balancing computational speed and precision.
+The error plot illustrates how each method’s error value decreases with each iteration.  
+The **Newton–Raphson Method** shows the steepest drop in error, confirming that it converges faster than the **Bisection** and **Secant** methods.  
+This agrees with the expected theoretical behavior discussed in the course.
 
 ---
 
-## 4.8 Conclusion of Findings
+## 4.7 Summary of Results  
 
-The experiment confirmed the theoretical expectations for each numerical method.  
-While the **Bisection Method** provides guaranteed convergence, it converges slowly.  
-The **Secant Method** offers good performance without needing derivatives, and the **Newton–Raphson Method** achieves superior speed when an accurate initial guess is available.
+| **Metric** | **Bisection** | **Newton–Raphson** | **Secant** |
+|-------------|:-------------:|:------------------:|:-----------:|
+| **Root Found** | 2.000000 | 2.000000 | 2.000000 |
+| **Iterations** | 1 | 5 | 6 |
+| **Derivative Required** | No | Yes | No |
+| **Convergence Type** | Linear | Quadratic | Superlinear |
+| **Stability** | High | Medium | Medium |
 
-These findings emphasize the importance of choosing the appropriate method depending on the problem’s characteristics and available computational resources.
+All three methods produced the same correct root \( x = 2 \).  
+However, the **Newton–Raphson Method** was the most efficient because it reached the solution with fewer iterations and high precision.  
+
+---
+
+## 4.8 Conclusion of Findings  
+
+The experiment confirmed the theoretical performance of each numerical method:  
+
+- The **Bisection Method** always converges but is relatively slow.  
+- The **Newton–Raphson Method** is the fastest when the derivative and a good initial guess are available.  
+- The **Secant Method** offers a practical compromise when the derivative is unknown.  
+
+These results are consistent with the concepts learned in class and demonstrate how each method behaves in practice.  
+They also show the importance of selecting the right numerical method depending on the type of equation and the information available.

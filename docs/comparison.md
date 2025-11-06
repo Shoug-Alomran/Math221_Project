@@ -1,96 +1,76 @@
-# 5. Comparison of Numerical Methods
+# Comparison of Methods  
 
-This section compares the three numerical techniques — **Bisection**, **Newton–Raphson**, and **Secant Methods** — based on their performance, convergence rate, stability, and computational efficiency.  
-All methods were applied to the same test function \( f(x) = x^2 - 4 \) and successfully converged to the root \( x = 2 \).
-
----
-
-## 5.1 Convergence Rate
-
-| Method           | Convergence Type | Order of Convergence | Speed |
-|------------------|------------------|-----------------------|--------|
-| **Bisection**        | Linear          | 1                     | Slow   |
-| **Newton–Raphson**   | Quadratic       | 2                     | Fast   |
-| **Secant**           | Superlinear     | ≈1.618 (Golden Ratio) | Moderate |
-
-- The **Bisection Method** converges linearly, meaning the number of accurate digits increases by roughly one per iteration.  
-- The **Newton–Raphson Method** converges quadratically, rapidly doubling the number of accurate digits per iteration once near the root.  
-- The **Secant Method** lies between the two — faster than Bisection but slightly slower than Newton–Raphson.
+This section compares the three numerical methods used in this project — **Bisection**, **Newton–Raphson**, and **Secant** — based on how they find the root, their rate of convergence, and overall behavior.  
+Although all three methods aim to solve \( f(x) = 0 \), they differ in how the next value \( x_{i+1} \) is calculated from previous iterations.
 
 ---
 
-## 5.2 Stability and Robustness
+## 5.1 Bisection Method  
 
-| Method | Stability | Derivative Required | Guaranteed Convergence |
-|:--|:--:|:--:|:--:|
-| **Bisection** | High | No | Yes |
-| **Newton–Raphson** | Medium | Yes | No |
-| **Secant** | Medium | No | No |
+- The **Bisection Method** starts with two values \( a \) and \( b \) such that \( f(a) \times f(b) < 0 \).  
+- The midpoint is found by:  
+  $$
+  x_{i+1} = \frac{a + b}{2}
+  $$  
+- The new interval is then selected based on the sign of \( f(x_{i+1}) \).  
+- This process repeats until the difference between \( a \) and \( b \) becomes very small.
 
-- **Bisection** is the most **stable** method, as it always converges if \(f(a)f(b) < 0\).  
-- **Newton–Raphson** is **sensitive** to the initial guess — it may diverge if the starting value is far from the true root or if \(f'(x)\) ≈ 0.  
-- **Secant** removes the need for a derivative but sacrifices guaranteed convergence in exchange for speed.
-
----
-
-## 5.3 Computational Effort
-
-| Method | Function Evaluations per Iteration | Memory Usage | Implementation Complexity |
-|:--|:--:|:--:|:--:|
-| **Bisection** | 1 | Low | Easy |
-| **Newton–Raphson** | 2 (f & f′) | Low | Moderate |
-| **Secant** | 2 | Low | Easy |
-
-- **Bisection** is computationally simple but may require more iterations.  
-- **Newton–Raphson** demands derivative computation at each step, increasing effort but reducing total iterations.  
-- **Secant** uses two function evaluations but avoids symbolic differentiation, making it efficient for non-analytic functions.
+**Main Points:**  
+- Converges **slowly but always works** if \( f(a)f(b) < 0 \).  
+- Does **not need derivatives**.  
+- Each step cuts the interval in half.
 
 ---
 
-## 5.4 Error Behavior
+## 5.2 Newton–Raphson Method  
 
-The error \(E_n = |x_n - x_{true}|\) decreases differently for each method:
+- The **Newton–Raphson Method** uses the tangent line to find where the function crosses the x-axis.  
+- Starting from an initial guess \( x_0 \), it applies the formula:  
+  $$
+  x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)}
+  $$  
+- The next value \( x_{i+1} \) is where the tangent line at \( (x_i, f(x_i)) \) meets the x-axis.
 
-- **Bisection:** Error reduces linearly with interval halving:  
-  \[
-  E_n = \frac{b - a}{2^n}
-  \]
-- **Newton–Raphson:** Error decreases quadratically:  
-  \[
-  E_{n+1} \approx C \cdot E_n^2
-  \]
-- **Secant:** Error follows a superlinear relationship:  
-  \[
-  E_{n+1} \approx C \cdot E_n^{1.618}
-  \]
-
-Thus, Newton–Raphson achieves faster convergence if the derivative is well-behaved.
+**Main Points:**  
+- **Very fast** convergence if the first guess is close to the actual root.  
+- Needs the **first derivative** \( f'(x) \).  
+- Might **diverge** if \( f'(x_i) = 0 \) or if the first guess is poor.
 
 ---
 
-## 5.5 Overall Comparison
+## 5.3 Secant Method  
 
-| Criterion | **Bisection** | **Newton–Raphson** | **Secant** |
-|:--|:--:|:--:|:--:|
-| Accuracy | High | Very High | High |
-| Convergence Speed | Slow | Fast | Moderate |
-| Stability | Excellent | Sensitive to initial guess | Sensitive to initial guesses |
-| Requires Derivative | No | Yes | No |
-| Ease of Implementation | Easy | Moderate | Easy |
-| Best Use Case | When guaranteed convergence is needed | When speed is crucial | When derivative is unavailable |
+- The **Secant Method** is similar to Newton–Raphson but uses two previous points instead of a derivative.  
+- The formula is:  
+  $$
+  x_{i+1} = x_i - f(x_i) \frac{x_i - x_{i-1}}{f(x_i) - f(x_{i-1})}
+  $$  
+- It uses the slope of the secant line between \( (x_{i-1}, f(x_{i-1})) \) and \( (x_i, f(x_i)) \).
+
+**Main Points:**  
+- **Faster** than Bisection but a bit **slower** than Newton–Raphson.  
+- **No derivative** is required.  
+- Can fail if \( f(x_i) \) and \( f(x_{i-1}) \) are nearly the same.
 
 ---
 
-## 5.6 Discussion
+## 5.4 Summary of Comparison  
 
-The **Newton–Raphson Method** demonstrated the fastest convergence and highest precision among all three techniques.  
-However, its dependence on the derivative and sensitivity to initial guesses can lead to divergence under poor conditions.
+| **Feature** | **Bisection** | **Newton–Raphson** | **Secant** |
+|--------------|----------------|---------------------|-------------|
+| **Derivative Required** | No | Yes | No |
+| **Initial Guesses** | Two points \( a, b \) | One point \( x_0 \) | Two points \( x_0, x_1 \) |
+| **Formula** | \( x_{i+1} = \frac{a + b}{2} \) | \( x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)} \) | \( x_{i+1} = x_i - f(x_i) \frac{x_i - x_{i-1}}{f(x_i) - f(x_{i-1})} \) |
+| **Convergence Speed** | Slow | Fast | Moderate |
+| **Stability** | Always convergent | May diverge | May diverge |
+| **Ease of Use** | Very Easy | Moderate | Easy |
 
-The **Bisection Method** remains the most reliable option, ensuring convergence as long as the initial interval brackets the root.  
-The **Secant Method** offers an excellent balance — combining simplicity and efficiency without requiring a derivative.
+---
 
-Overall, the choice of method depends on the **nature of the function**, **availability of derivatives**, and **required precision**.  
-In practical applications:
-- Use **Bisection** for safety and guaranteed results.  
-- Use **Newton–Raphson** when speed is essential and derivatives are known.  
-- Use **Secant** when derivatives are difficult or impossible to compute.
+## 5.5 Final Remarks  
+
+- The **Bisection Method** is the safest and always converges but is the slowest.  
+- The **Newton–Raphson Method** is the fastest and most accurate if the derivative is available.  
+- The **Secant Method** provides a balance — it is faster than Bisection and simpler than Newton–Raphson.  
+
+Overall, the **Newton–Raphson method** performed best in this project because it reached the correct root in fewer iterations, while all three methods produced the same final result (**x = 2**).
