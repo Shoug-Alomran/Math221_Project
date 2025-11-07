@@ -40,6 +40,7 @@ They are applied in many fields like **engineering**, **computer science**, and 
 
 Numerical methods connect mathematical theory with real-world use.  
 Each method has its advantages:
+
 - **Bisection Method:** Always converges but slower.  
 - **Newton–Raphson Method:** Fast and accurate when the derivative is known.  
 - **Secant Method:** A good middle option—fast and simple without needing a derivative.  
